@@ -25,6 +25,6 @@ const convenioRouter = require('./src/routes/convenio.routes')
 app.use('/convenio', convenioRouter)
 
 const usuarioRouter = require('./src/routes/usuarios.routes')
-app.use('/usuario', convenioRouter)
+app.use('/usuario', usuarioRouter)
 
 app.listen(PORT, () => console.log('Servidor rodando na porta 3333'))
