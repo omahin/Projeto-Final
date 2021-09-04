@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const app = express()
+const PORT = process.env.PORT || 3333
 
 require('dotenv-safe').config()
 
@@ -25,7 +26,5 @@ app.use('/convenio', convenioRouter)
 
 const usuarioRouter = require('./src/routes/usuarios.routes')
 app.use('/usuario', convenioRouter)
-
-const PORT = process.env.PORT || 3333
 
 app.listen(PORT, () => console.log('Servidor rodando na porta 3333'))
