@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
-const MONGODB = process.env.MONGODB_URL
+const MONGO_URL = process.env.MONGODB_URI || 'mongodb://localhost:27017/procura-psi'
 
-const connect = () => {mongoose.connect(MONGODB, {
+const connect = () => {mongoose.connect(MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
