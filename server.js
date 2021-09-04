@@ -23,6 +23,9 @@ app.use('/abordagem', abordagemRouter)
 const convenioRouter = require('./src/routes/convenio.routes')
 app.use('/convenio', convenioRouter)
 
+const usuarioRouter = require('./src/routes/usuarios.routes')
+app.use('/usuario', convenioRouter)
+
 const PORT = process.env.PORT || 3333
 
 app.listen(PORT, () => console.log('Servidor rodando na porta 3333'))
