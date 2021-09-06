@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
 const convenio = require('../models/convenio')
 const Convenio = require('../models/convenio')
+const jwt = require('jsonwebtoken')
+const SECRET = process.env.SECRET
 
 const criarConvenio = async (req, res) => {
     const authHeader = req.get('authorization')

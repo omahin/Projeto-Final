@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const terapeutaSchema = new mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     nome: {
-        type: "String",
+        type: String,
         required: true,
     },
     numeroCrp: {
@@ -47,11 +47,6 @@ const terapeutaSchema = new mongoose.Schema({
         required: true,
         default: new Date
     },
-    atualizadoEm: {
-        type: Date,
-        required: true,
-        default: new Date
-    }
 })
 
 module.exports = mongoose.model('terapeuta', terapeutaSchema)

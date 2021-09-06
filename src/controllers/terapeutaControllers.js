@@ -2,7 +2,6 @@ const mongoose = require('mongoose')
 const terapeuta = require('../models/terapeuta')
 const Terapeuta = require('../models/terapeuta')
 const jwt = require('jsonwebtoken')
-
 const SECRET = process.env.SECRET
 //console.log(process.env)
 
