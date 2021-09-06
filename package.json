@@ -1,13 +1,13 @@
 {
-  "name": "recifeolinda",
+  "name": "procurapsi",
   "version": "1.0.0",
-  "description": "",
+  "description": "Api para cadastro e busca de informações de terapeutas",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Olga Mahin",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",

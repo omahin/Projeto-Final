@@ -50,23 +50,6 @@ const criarEntrada = async (req,res) => {
     })
 }
 
-const getById = async (req, res) => {
-    // const authHeader = req.get('authorization')
-    // const token = authHeader.split(' ')[1]
-    // if(!token){
-    //     return res.status(403).send({message: 'Insira o token!'})
-    // }
-    // jwt.verify(token, SECRET, async(err) => {
-    //     if (err) {
-    //         return res.status(403).send({message: 'Token não válido!', err})
-    //     }
-    const terapeutas = await Terapeuta.find()
-    const terapeutaId = req.params.id
-    const filterTerapeuta = terapeutas.filter(terapeuta => terapeuta.id == terapeutaId)
-    res.status(201).json(filterTerapeuta)
-    // })
-}
-
 const atualizarTerapeuta = async (req, res) => {
     const authHeader = req.get('authorization')
     const token = authHeader.split(' ')[1]
@@ -141,6 +124,23 @@ const deletarTerapeuta = async (req, res) => {
         } catch{
             res.status(404).json({message: 'Não há dados para remover com o ID inserido'})
         }
+    })
+}
+
+const getById = async (req, res) => {
+    const authHeader = req.get('authorization')
+    const token = authHeader.split(' ')[1]
+    if(!token){
+        return res.status(403).send({message: 'Insira o token!'})
+    }
+    jwt.verify(token, SECRET, async(err) => {
+        if (err) {
+            return res.status(403).send({message: 'Token não válido!', err})
+        }
+    const terapeutas = await Terapeuta.find()
+    const terapeutaId = req.params.id
+    const filterTerapeuta = terapeutas.filter(terapeuta => terapeuta.id == terapeutaId)
+    res.status(201).json(filterTerapeuta)
     })
 }
 
