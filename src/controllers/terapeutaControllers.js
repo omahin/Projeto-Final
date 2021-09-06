@@ -6,19 +6,9 @@ const SECRET = process.env.SECRET
 //console.log(process.env)
 
 const todos = async(req, res) => {
-    const authHeader = req.get('authorization')
-    const token = authHeader.split(' ')[1]
-    if(!token){
-        return res.status(403).send({message: 'Insira o token!'})
-    }
-    jwt.verify(token, SECRET, async(err) => {
-        if (err) {
-            return res.status(403).send({message: 'Token não válido!', err})
-        }
     const terapeutas = await Terapeuta.find()
     res.status(200).json(terapeutas)
-    })
-}
+    }
 
 const criarEntrada = async (req,res) => {
     const authHeader = req.get('authorization')
