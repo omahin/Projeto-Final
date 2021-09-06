@@ -6,7 +6,7 @@ const controller = require('../controllers/terapeutaControllers')
 router.get('/todos', controller.todos)
 
 //listar terapeutas por especialidades
-router.get('/:especialidade', controller.getByEspecialidade)
+router.get('/especialidade', controller.getByEspecialidade)
 
 //listar terapeutas por abordagens
 router.get('/abordagem/:abordagem', controller.getByAbordagem)
