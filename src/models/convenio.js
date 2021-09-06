@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 
 const convenioSchema = new mongoose.Schema({
-    _id: mongoose.Schema.Types.ObjectId,
     convenio: {
         type: String,
         required: true

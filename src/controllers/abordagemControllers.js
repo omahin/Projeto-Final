@@ -15,7 +15,6 @@ const criarAbordagem = async (req, res) => {
             return res.status(403).send({message: 'Token não válido!', err})
         }
     const abordagem = new Abordagem({
-        // _id: mongoose.Schema.Types.ObjectId,
         abordagem: req.body.abordagem,
         descricao: req.body.descricao,
         criadoEm: req.body.criadoEm

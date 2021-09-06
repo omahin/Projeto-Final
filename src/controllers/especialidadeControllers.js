@@ -15,7 +15,6 @@ const criarEspecialidade = async (req,res) => {
             return res.status(403).send({message: 'Token não válido!', err})
         }
     const especialidade = new Especialidade({
-        _id: new mongoose.Types.ObjectId(),
         especialidade: req.body.especialidade,
         criadoEm: req.body.criadoEm
     })
