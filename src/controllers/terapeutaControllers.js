@@ -61,9 +61,9 @@ const getById = async (req, res) => {
             return res.status(403).send({message: 'Token não válido!', err})
         }
     const terapeutas = await Terapeuta.find()
-    const requireId = req.params.id
-    const filterId = terapeutas.filter(terapeuta => terapeuta.id == requireId)
-    res.status(201).json(filterId)
+    const terapeutaId = req.params.id
+    const filterTerapeuta = terapeutas.filter(terapeuta => terapeuta.id == terapeutaId)
+    res.status(201).json(filterTerapeuta)
     })
 }
 
