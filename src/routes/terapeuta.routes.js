@@ -14,7 +14,7 @@ router.get('/abordagem/:abordagem', controller.getByAbordagem)
 router.get('/convenio/:convenio', controller.getByConvenio)
 
 //listar terapeutas por ID
-router.get('/:id', controller.getById)
+router.get('/id/:id', controller.getById)
 
 //criar uma entrada de terapeuta
 router.post('/criar', controller.criarEntrada)
