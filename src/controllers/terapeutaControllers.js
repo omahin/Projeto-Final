@@ -1,16 +1,36 @@
 const mongoose = require('mongoose')
 const terapeuta = require('../models/terapeuta')
 const Terapeuta = require('../models/terapeuta')
+const jwt = require('jsonwebtoken')
 
 const SECRET = process.env.SECRET
 //console.log(process.env)
 
 const todos = async(req, res) => {
+    const authHeader = req.get('authorization')
+    const token = authHeader.split(' ')[1]
+    if(!token){
+        return res.status(403).send({message: 'Insira o token!'})
+    }
+    jwt.verify(token, SECRET, async(err) => {
+        if (err) {
+            return res.status(403).send({message: 'Token não válido!', err})
+        }
     const terapeutas = await Terapeuta.find()
     res.status(200).json(terapeutas)
+    })
 }
 
 const criarEntrada = async (req,res) => {
+    const authHeader = req.get('authorization')
+    const token = authHeader.split(' ')[1]
+    if(!token){
+        return res.status(403).send({message: 'Insira o token!'})
+    }
+    jwt.verify(token, SECRET, async(err) => {
+        if (err) {
+            return res.status(403).send({message: 'Token não válido!', err})
+        }
     const terapeuta = new Terapeuta({
         _id: new mongoose.Types.ObjectId(),
         nome: req.body.nome,
@@ -32,23 +52,42 @@ const criarEntrada = async (req,res) => {
     if (terapeutaJaExiste) {
     return res.status(409).json({error: 'Profissional já cadastrado, tente novamente!'})
     //tenta salvar o novo terapeuta, caso dê erro me retorne o erro.
-    }try{
+        }try{
         const novoTerapeuta = await terapeuta.save()
         res.status(201).json(novoTerapeuta)
-    }catch(err){
+        }catch(err){
         res.status(400).json({message: err.message})
-    }
+        }
+    })
 }
 
 const getById = async (req, res) => {
+    const authHeader = req.get('authorization')
+    const token = authHeader.split(' ')[1]
+    if(!token){
+        return res.status(403).send({message: 'Insira o token!'})
+    }
+    jwt.verify(token, SECRET, async(err) => {
+        if (err) {
+            return res.status(403).send({message: 'Token não válido!', err})
+        }
     const terapeutas = await Terapeuta.find()
     const requireId = req.params.id
     const filterId = terapeutas.filter(terapeuta => terapeuta.id == requireId)
     res.status(201).json(filterId)
+    })
 }
 
 const atualizarTerapeuta = async (req, res) => {
-    try {
+    const authHeader = req.get('authorization')
+    const token = authHeader.split(' ')[1]
+    if(!token){
+        return res.status(403).send({message: 'Insira o token!'})
+    }
+    jwt.verify(token, SECRET, async(err) => {
+        if (err) {
+            return res.status(403).send({message: 'Token não válido!', err})
+        }try {
         const terapeuta = await Terapeuta.findById(req.params.id)
         if(terapeuta == null){
         return res.status(404).json({message: "Terapeuta não localizado!"})
@@ -85,12 +124,22 @@ const atualizarTerapeuta = async (req, res) => {
         }
         const terapeutaAtualizado = await terapeuta.save()
         res.status(200).json(terapeutaAtualizado)
-    } catch (err) {
-        res.status(500).json({message: err.message})
-    }
-}  
+        } catch (err) {
+            res.status(500).json({message: err.message})
+        }
+    })
+} 
 
 const deletarTerapeuta = async (req, res) => {
+    const authHeader = req.get('authorization')
+    const token = authHeader.split(' ')[1]
+    if(!token){
+        return res.status(403).send({message: 'Insira o token!'})
+    }
+    jwt.verify(token, SECRET, async(err) => {
+        if (err) {
+            return res.status(403).send({message: 'Token não válido!', err})
+        }
     const requireId = req.params.id
         try {
             Terapeuta.deleteOne({ _id: requireId }, function(err){
@@ -103,34 +152,65 @@ const deletarTerapeuta = async (req, res) => {
         } catch{
             res.status(404).json({message: 'Não há dados para remover com o ID inserido'})
         }
-    }
+    })
+}
 
 const getByEspecialidade = async (req, res) => {
+    const authHeader = req.get('authorization')
+    const token = authHeader.split(' ')[1]
+    if(!token){
+        return res.status(403).send({message: 'Insira o token!'})
+    }
+    jwt.verify(token, SECRET, async(err) => {
+        if (err) {
+            return res.status(403).send({message: 'Token não válido!', err})
+        }
     const { especialidade } = req.params
-    Terapeuta.find({ especialidade : especialidade })
+        Terapeuta.find({ especialidade : especialidade })
         .then((list)=> {
             if(!list.length > 0) return res.status(404).send({"message": "Especialidade não encontrada, tente novamente!"})
         return res.status(200).send(list)
+        })
     })
 }
 
 const getByAbordagem = async (req,res) => {
+    const authHeader = req.get('authorization')
+    const token = authHeader.split(' ')[1]
+    if(!token){
+        return res.status(403).send({message: 'Insira o token!'})
+    }
+    jwt.verify(token, SECRET, async(err) => {
+        if (err) {
+            return res.status(403).send({message: 'Token não válido!', err})
+        }
     const { abordagem } = req.params
-    Terapeuta.find({ abordagem : abordagem })
+        Terapeuta.find({ abordagem : abordagem })
         .then((list)=> { 
             if(!list.length > 0) return res.status(404).json({"message": "Abordagem não encontrada, tente novamente!"})
         return res.status(200).send(list)
+        })
     })
 }
 
 const getByConvenio = async (req,res) => {
+    const authHeader = req.get('authorization')
+    const token = authHeader.split(' ')[1]
+    if(!token){
+        return res.status(403).send({message: 'Insira o token!'})
+    }
+    jwt.verify(token, SECRET, async(err) => {
+        if (err) {
+            return res.status(403).send({message: 'Token não válido!', err})
+        }
     const { convenio } = req.params
-    Terapeuta.find({ convenio : convenio })
+        Terapeuta.find({ convenio : convenio })
         .then((list)=> { 
             if(!list.length > 0) return res.status(404).json({"message": "Convênio não encontrado, tente novamente!"})
         return res.status(200).send(list)
+        })
     })
-} 
+}
 
 module.exports = {
     todos,

@@ -3,6 +3,15 @@ const convenio = require('../models/convenio')
 const Convenio = require('../models/convenio')
 
 const criarConvenio = async (req, res) => {
+    const authHeader = req.get('authorization')
+    const token = authHeader.split(' ')[1]
+    if(!token){
+        return res.status(403).send({message: 'Insira o token!'})
+    }
+    jwt.verify(token, SECRET, async(err) => {
+        if (err) {
+            return res.status(403).send({message: 'Token não válido!', err})
+        }
     const convenio = new Convenio({
         _id: new mongoose.Types.ObjectId(),
         convenio: req.body.convenio,
@@ -10,6 +19,7 @@ const criarConvenio = async (req, res) => {
     })
     const novoConvenio = await convenio.save()
     res.status(201).json(novoConvenio)
+    })
 }
 
 const todos = async (req,res) => {

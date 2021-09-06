@@ -24,4 +24,7 @@ app.use('/convenio', convenioRouter)
 const usuarioRouter = require('./routes/usuarios.routes')
 app.use('/usuario', usuarioRouter)
 
+const admRouter = require('./routes/adm.routes')
+app.use('/adm', admRouter)
+
 module.exports = app

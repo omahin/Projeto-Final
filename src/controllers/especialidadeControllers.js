@@ -2,12 +2,16 @@ const mongoose = require('mongoose')
 const especialidade = require('../models/especialidade')
 const Especialidade = require('../models/especialidade')
 
-const todos = async(req, res) => {
-    const especialidades = await Especialidade.find()
-    res.json(especialidades)
-}
-
 const criarEspecialidade = async (req,res) => {
+    const authHeader = req.get('authorization')
+    const token = authHeader.split(' ')[1]
+    if(!token){
+        return res.status(403).send({message: 'Insira o token!'})
+    }
+    jwt.verify(token, SECRET, async(err) => {
+        if (err) {
+            return res.status(403).send({message: 'Token não válido!', err})
+        }
     const especialidade = new Especialidade({
         _id: new mongoose.Types.ObjectId(),
         especialidade: req.body.especialidade,
@@ -16,7 +20,13 @@ const criarEspecialidade = async (req,res) => {
     const novaEspecialidade = await especialidade.save()
     //console.log("novaEspecialidade")
     res.status(201).json(novaEspecialidade)
-    }
+    })
+} 
+
+const todos = async(req, res) => {
+    const especialidades = await Especialidade.find()
+    res.json(especialidades)
+}
 
 const verPorId = async (req, res) => {
     const especialidades = await Especialidade.find()

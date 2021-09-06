@@ -3,6 +3,15 @@ const abordagem = require('../models/abordagem')
 const Abordagem = require('../models/abordagem')
 
 const criarAbordagem = async (req, res) => {
+    const authHeader = req.get('authorization')
+    const token = authHeader.split(' ')[1]
+    if(!token){
+        return res.status(403).send({message: 'Insira o token!'})
+    }
+    jwt.verify(token, SECRET, async(err) => {
+        if (err) {
+            return res.status(403).send({message: 'Token não válido!', err})
+        }
     const abordagem = new Abordagem({
         _id: new mongoose.Types.ObjectId(),
         abordagem: req.body.abordagem,
@@ -11,6 +20,7 @@ const criarAbordagem = async (req, res) => {
     })
     const novaAbordagem = await abordagem.save()
     res.status(201).json(novaAbordagem)
+    })
 }
 
 const todos = async (req, res) => {
