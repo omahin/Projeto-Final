@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const abordagemSchema = new mongoose.Schema({
-    _id: mongoose.Schema.Types.ObjectId,
+    // _id: mongoose.Schema.Types.ObjectId,
     abordagem: {
         type: String,
         required: true
