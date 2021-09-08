@@ -1,7 +1,8 @@
 REPROGRAMA 🚀 | Turma On12 BACKEND | PROJETO FINAL 🚀
 
-<span style="display:block;text-align:center">![Logo do Projeto](https://github.com/omahin/Projeto-Final/blob/main/src/img/logoprocurapsi.png)</span>
-
+<p align="center">
+  <img src="https://github.com/omahin/Projeto-Final/blob/main/src/img/logoprocurapsi.png" width = "500"/>
+</p>
 
 <!-- <p align="center">
 ![Logo do Projeto](https://github.com/omahin/Projeto-Final/blob/main/src/img/logoprocurapsi.png) 
