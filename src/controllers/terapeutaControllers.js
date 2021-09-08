@@ -3,16 +3,26 @@ const terapeuta = require('../models/terapeuta')
 const Terapeuta = require('../models/terapeuta')
 const jwt = require('jsonwebtoken')
 const SECRET = process.env.SECRET
-// const Adm = require('../models/adm')
-//console.log(process.env)
+const {utils} = require('../utils/authUtils')
 
-const todos = async(req, res) => {
-    const terapeutas = await Terapeuta.find()
-    res.status(200).json(terapeutas)
+const todos = (req, res) => {
+    // const authHeader = req.get('authorization')
+    // const token = authHeader.split(' ')[1]
+    const token = utils(req, res)
+    // const auth = authHeader.split(' ')[1]
+    if (isAdmin(req, res) && isLoggedIn(req, res)){
+        return res.status(403).send({message: "Insira o token!"})
     }
+    jwt.verify(token, SECRET, async(err)=>{
+        if(err){
+            res.status(403).send({message: "Token não válido!", err})
+        }
+    })
+    const terapeutas = Terapeuta.find()
+    res.status(200).json(terapeutas)
+}
 
 const criarTerapeuta = async (req,res) => {
-    // const Adm = ({cpf:req.body.cpf})
     const authHeader = req.get('authorization')
     const token = authHeader.split(' ')[1]
     if(!token){

@@ -3,6 +3,7 @@ const convenio = require('../models/convenio')
 const Convenio = require('../models/convenio')
 const jwt = require('jsonwebtoken')
 const SECRET = process.env.SECRET
+const utils = require('../utils/authUtils')
 
 const criarConvenio = async (req, res) => {
     const authHeader = req.get('authorization')

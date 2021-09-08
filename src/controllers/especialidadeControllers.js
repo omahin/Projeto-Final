@@ -3,6 +3,7 @@ const especialidade = require('../models/especialidade')
 const Especialidade = require('../models/especialidade')
 const jwt = require('jsonwebtoken')
 const SECRET = process.env.SECRET
+const utils = require('../utils/authUtils')
 
 const criarEspecialidade = async (req,res) => {
     const authHeader = req.get('authorization')
