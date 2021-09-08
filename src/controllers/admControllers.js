@@ -18,10 +18,10 @@ const criarAdm = async (req, res) => {
 }
 
 const login = (req, res) => {
-  Adm.findOne({ email: req.body.email }, (err, admEncontrado) => {
+  Adm.findOne({ cpf: req.body.cpf }, (err, admEncontrado) => {
     // console.log(usuariaEncontrada)
     if (!admEncontrado) {
-      return res.status(404).send({ message: 'Administrador não encontrado', email: `${req.body.email}`})
+      return res.status(404).send({ message: 'Administrador não encontrado', cpf: `${req.body.cpf}`})
     }
     // console.log('SENHA DO BODY', req.body.senha)
     // console.log('SENHA DO BANCO', usuariaEncontrada.senha)
@@ -33,7 +33,7 @@ const login = (req, res) => {
       return res.status(401).send({message: "Login não autorizado"})
     }
 
-    const token = jwt.sign({email: req.body.email}, SECRET)
+    const token = jwt.sign({cpf: admEncontrado.cpf}, SECRET)
     res.status(200).send({ messagem: "Login realizado com sucesso", token: token})
 })
 

@@ -3,6 +3,7 @@ const terapeuta = require('../models/terapeuta')
 const Terapeuta = require('../models/terapeuta')
 const jwt = require('jsonwebtoken')
 const SECRET = process.env.SECRET
+// const Adm = require('../models/adm')
 //console.log(process.env)
 
 const todos = async(req, res) => {
@@ -10,7 +11,8 @@ const todos = async(req, res) => {
     res.status(200).json(terapeutas)
     }
 
-const criarEntrada = async (req,res) => {
+const criarTerapeuta = async (req,res) => {
+    // const Adm = ({cpf:req.body.cpf})
     const authHeader = req.get('authorization')
     const token = authHeader.split(' ')[1]
     if(!token){
@@ -21,7 +23,7 @@ const criarEntrada = async (req,res) => {
             return res.status(403).send({message: 'Token não válido!', err})
         }
     const terapeuta = new Terapeuta({
-        _id: mongoose.Schema.Types.ObjectId,
+        // _id: mongoose.Schema.Types.ObjectId,
         nome: req.body.nome,
         numeroCrp: req.body.numeroCrp,
         especialidade: req.body.especialidade,
@@ -203,7 +205,7 @@ const getByConvenio = async (req,res) => {
 
 module.exports = {
     todos,
-    criarEntrada,
+    criarTerapeuta,
     getById,
     getByEspecialidade,
     atualizarTerapeuta,

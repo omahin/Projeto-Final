@@ -17,7 +17,7 @@ router.get('/convenio/:convenio', controller.getByConvenio)
 router.get('/id/:id', controller.getById)
 
 //criar uma entrada de terapeuta
-router.post('/criar', controller.criarEntrada)
+router.post('/criar', controller.criarTerapeuta)
 
 //Alterar dados já cadastrados anteriomente e retorna atualizado
 router.patch('/:id', controller.atualizarTerapeuta)
