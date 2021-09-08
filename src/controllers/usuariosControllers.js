@@ -1,8 +1,7 @@
 const Usuario = require('../models/usuario')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const SECRET = process.env.SECRET
-const utils = require('../utils/authUtils')
+const SECRETUSER = process.env.SECRETUSER
 
 const criarUsuario = async (req, res) => {
   const senhaComHash = bcrypt.hashSync(req.body.senha, 8)
@@ -26,8 +25,8 @@ const login = (req, res) => {
     if (!senhaValida) {
       return res.status(401).send({message: "Login não autorizado, senha incorreta!"})
     }
-    const token = jwt.sign({email: usuarioEncontrado.email}, SECRET)
-    res.status(200).send({ message: "Login realizado com sucesso", token: token, senha:usuarioEncontrado.senha})
+    const token = jwt.sign({email: usuarioEncontrado.email}, SECRETUSER)
+    res.status(200).send({ message: "Login realizado com sucesso", token: token})
   })
 }
 

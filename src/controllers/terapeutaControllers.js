@@ -2,8 +2,9 @@ const mongoose = require('mongoose')
 const terapeuta = require('../models/terapeuta')
 const Terapeuta = require('../models/terapeuta')
 const jwt = require('jsonwebtoken')
-const SECRET = process.env.SECRET
-const {utils} = require('../utils/authUtils')
+const SECRETUSER = process.env.SECRETUSER
+const SECRETADM = process.env.SECRETADM
+// const {utils} = require('../utils/authUtils')
 
 const todos = (req, res) => {
     // const authHeader = req.get('authorization')
@@ -13,7 +14,7 @@ const todos = (req, res) => {
     if (isAdmin(req, res) && isLoggedIn(req, res)){
         return res.status(403).send({message: "Insira o token!"})
     }
-    jwt.verify(token, SECRET, async(err)=>{
+    jwt.verify(token, SECRETUSER, async(err)=>{
         if(err){
             res.status(403).send({message: "Token não válido!", err})
         }
@@ -28,7 +29,7 @@ const criarTerapeuta = async (req,res) => {
     if(!token){
         return res.status(403).send({message: 'Insira o token!'})
     }
-    jwt.verify(token, SECRET, async(err) => {
+    jwt.verify(token, SECRETADM, async(err) => {
         if (err) {
             return res.status(403).send({message: 'Token não válido!', err})
         }
