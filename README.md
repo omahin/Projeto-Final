@@ -24,23 +24,25 @@ A API cadastrará psicólogos e seus serviços, por exemplo: tipo de abordagem, 
 ## 📝 Tabela de Conteúdo
 
 <!--ts-->
-   * [Sobre o Projeto](#sobre-o-projeto)
+
+ * [Sobre o Projeto](#sobre-o-projeto)
       * [Problema](#problema)
       * [Solução](#solucao)
-   * [Tabela de Conteudo](#tabela-de-conteudo)
-   * [Funcionalidades](#funcionalidades)
-   * [Rotas](#rotas)
-   * [Regras de Negócio](#regras-de-negocio)
-   * [Demonstração da API](#demonstracao-da-api)
-   * [Pré Requisitos](#pre-requisitos)
-   * [Rodando o Back End](#rodando-o-back-end)
-   * [Tecnologias Utilizadas](#tecnologias-utilizadas)
-   * [Pacotes Utilizados](#pacotes-utilizados)
-   * [Implementações Futuras](#implementações-futuras)
-   * [Gostaria de Contribuir?](#gostaria-de-contribuir?)
-   * [Licença](#licenca)
-   * [Agradecimentos](#agradecimentos)
-   * [Desenvolvedora](#Desenvolvedora)
+* [Tabela de Conteudo](#tabela-de-conteudo)
+* [Funcionalidades](#funcionalidades)
+* [Rotas](#rotas)
+* [Regras de Negócio](#regras-de-negocio)
+* [Demonstração da API](#demonstracao-da-api)
+* [Pré Requisitos](#pre-requisitos)
+* [Rodando o Back End](#rodando-o-back-end)
+* [Tecnologias Utilizadas](#tecnologias-utilizadas)
+* [Pacotes Utilizados](#pacotes-utilizados)
+* [Implementações Futuras](#implementações-futuras)
+* [Gostaria de Contribuir?](#gostaria-de-contribuir?)
+* [Licença](#licenca)
+* [Agradecimentos](#agradecimentos)
+* [Desenvolvedora](#Desenvolvedora)
+
 <!--te-->
 
 ## ⚙️ Funcionalidades
