@@ -25,7 +25,7 @@ const login = (req, res) => {
     if (!senhaValida) {
       return res.status(401).send({message: "Login não autorizado, senha incorreta!"})
     }
-    const token = jwt.sign({email: usuarioEncontrado.email}, SECRETUSER)
+    const token = jwt.sign({email: req.body.email}, SECRETUSER)
     res.status(200).send({ message: "Login realizado com sucesso", token: token})
   })
 }
