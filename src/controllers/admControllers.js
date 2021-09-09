@@ -34,7 +34,7 @@ const login = (req, res) => {
       return res.status(401).send({message: "Login não autorizado"})
     }
 
-    const token = jwt.sign({cpf: admEncontrado.cpf}, SECRETADM)
+    const token = jwt.sign({cpf: req.body.cpf}, SECRETADM)
     res.status(200).send({ messagem: "Login realizado com sucesso", token: token})
 })
 
