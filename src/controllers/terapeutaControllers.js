@@ -14,7 +14,7 @@ const todos = (req, res) => {
     if (isAdmin(req, res) && isLoggedIn(req, res)){
         return res.status(403).send({message: "Insira o token!"})
     }
-    jwt.verify(token, SECRETUSER, async(err)=>{
+    jwt.verify(token, SECRETADM, async(err)=>{
         if(err){
             res.status(403).send({message: "Token não válido!", err})
         }
