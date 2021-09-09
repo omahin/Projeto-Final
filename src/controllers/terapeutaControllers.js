@@ -6,7 +6,7 @@ const SECRET_USER = process.env.SECRET_USER
 const SECRET_ADM = process.env.SECRET_ADM
 
 const todos = async (req, res) => {
-    const authHeader = req.get('authorization')
+    const authHeader = req.get('Authorization')
     const token = authHeader.split(' ')[1]
     if (!token){
         return res.status(403).send({message: "Insira o token!"})
