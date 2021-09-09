@@ -161,7 +161,7 @@ Gostaria de agradecer imensamente a oportunidade de ter participado desse curso 
 
 ## 👩🏽‍💻 Desenvolvedora
 
-<img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/79282971?v=4" width="100px;" alt=""/>
+<img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/79282971?v=4" width="100px;"/>
 <br />
 <sub><b>Olga Mahin</b></sub></a> <a >🚀</a>
 <br />
