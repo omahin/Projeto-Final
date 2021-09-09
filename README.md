@@ -137,6 +137,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 * bcrypt
 * jsonwebtoken
 * cors
+
 ## 🔮 Implementações Futuras 
 
 No futuro, integrar o back com o front, criando a interface visual da API para aplicativo mobile.
@@ -157,8 +158,6 @@ Este projeto está sob a licença [MIT](./LICENSE.txt).
 Gostaria de agradecer imensamente a oportunidade de ter participado desse curso incrível, além de todo o conhecimento acumulado, trago no peito todas as mulheres maravilhosas que tive a sorte de conhecer e que levo como amigas de profissão e pra vida! Obrigada a todas as minhas duplas e simbora debugar! 
 
 ## 👩🏽‍💻 Desenvolvedora
-
----
 
  <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/79282971?v=4" width="100px;" alt=""/>
  <br />
