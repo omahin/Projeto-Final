@@ -95,7 +95,7 @@ A API cadastrará psicólogos e seus serviços, por exemplo: tipo de abordagem, 
 
 ## Demonstração da Aplicação
 
-[!Projeto rodando no Postman](./img/ProgramaPSI.png)
+[!Projeto rodando no Postman](https://github.com/omahin/Projeto-Final/blob/main/img/procurapsi.gif)
 ## Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
@@ -144,7 +144,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 No futuro, integrar o back com o front, criando a interface visual da API para aplicativo mobile.
 
-[!Imagem da logo](https://github.com/omahin/Projeto-Final/blob/main/src/img/Programa%20PSI.png)
+[!Imagem da logo](https://github.com/omahin/Projeto-Final/blob/main/img/Programa%20PSI.png)
 
 ## 💪🏼 Gostaria de contribuir?
 
