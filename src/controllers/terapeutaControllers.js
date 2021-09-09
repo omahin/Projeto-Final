@@ -10,15 +10,14 @@ const todos = async (req, res) => {
     const token = authHeader.split(' ')[1]
     if (!token){
         return res.status(403).send({message: "Insira o token!"})
-    }
-    jwt.verify(token, SECRET_ADM, SECRET_USER, async(err) => {
-        if(err){
-            res.status(403).send({message: "Token não válido!", err})
+    }if(jwt.verify(token, SECRET_ADM) || jwt.verify(token, SECRET_USER)){
+        return res.status(200).send({message: "Chegou no IF"})
+    } else{
+        res.status(403).send({message: "Token não válido!"})
         }
         const terapeutas = await Terapeuta.find()
             res.status(200).json(terapeutas)
-    })
-}
+    }
 
 // const todosUSer = async (req, res) => {
 //     const authHeader = req.get('authorization')
