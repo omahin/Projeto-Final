@@ -14,7 +14,7 @@ const todos = async (req, res) => {
     if (!token){
         return res.status(403).send({message: "Insira o token!"})
     }
-    jwt.verify(token, SECRETADM, async(err)=>{
+    jwt.verify(token, SECRETADM, async(err) => {
         if(err){
             res.status(403).send({message: "Token não válido!", err})
         }
