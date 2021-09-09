@@ -1,15 +1,14 @@
-REPROGRAMA 🚀 | Turma On12 BACKEND | PROJETO FINAL 🚀
+<p align="center">REPROGRAMA 🚀 | Turma On12 BACKEND | PROJETO FINAL 🚀</p>
 
 <p align="center">
-  <img src="https://github.com/omahin/Projeto-Final/blob/main/src/img/logoprocurapsi.png" width = "200"/>
+  <img src="https://github.com/omahin/Projeto-Final/blob/main/src/img/logoprocurapsi.png" width = "250"/>
 </p>
 
-<h1 align="center">
-    <a href="https://pt-br.reactjs.org/">🕵🏼 Procura PSI 🕵🏽‍♀️</a>
-</h1>
+<h2 align="center">🕵🏼 Procura PSI 🕵🏽‍♀️</a></h2>
+
 <p align="center">Api direcionada para cadastro e pesquisa de profissionais que cuidem da saúde mental</p>
 
-<h3 align="center">Status do Projeto: 🚧 Em construção... 🚧 </h3>
+<h3 align="center">Status do Projeto: 🚧 Em construção... 🚧</h3>
 
 ## 💻 Sobre o Projeto 
 
