@@ -21,7 +21,6 @@ A API cadastrará psicólogos e seus serviços, por exemplo: tipo de abordagem, 
 ## 📝 Tabela de Conteúdo
 
 <!--ts-->
-
  * [Sobre o Projeto](#sobre-o-projeto)
       * [Problema](#problema)
       * [Solução](#solucao)
@@ -39,7 +38,6 @@ A API cadastrará psicólogos e seus serviços, por exemplo: tipo de abordagem, 
 * [Licença](#licenca)
 * [Agradecimentos](#agradecimentos)
 * [Desenvolvedora](#Desenvolvedora)
-
 <!--te-->
 
 ## ⚙️ Funcionalidades
