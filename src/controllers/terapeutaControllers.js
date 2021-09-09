@@ -12,11 +12,12 @@ const todos = async (req, res) => {
     const token = authHeader.split(' ')[1]
     if (!token){
         return res.status(403).send({message: "Insira o token!"})
-    }if (secret1 || secret2){
+    }if (secret1){
         return res.status(200).send({message: "Chegou no IF"})
-    } else{
-        res.status(403).send({message: "Token não válido!"})
-        }
+        }else if(secret2){
+            return res.status(200).send({message: "Chegou no IF2"})
+        } else{
+            res.status(403).send({message: "Token não válido!"})}
         const terapeutas = await Terapeuta.find()
             res.status(200).json(terapeutas)
     }
