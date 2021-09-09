@@ -2,8 +2,8 @@ const mongoose = require('mongoose')
 const terapeuta = require('../models/terapeuta')
 const Terapeuta = require('../models/terapeuta')
 const jwt = require('jsonwebtoken')
-const SECRET_USER = process.env.SECRETUSER
-const SECRET_ADM = process.env.SECRETADM
+const SECRET_USER = process.env.SECRET_USER
+const SECRET_ADM = process.env.SECRET_ADM
 
 const todos = async (req, res) => {
     const authHeader = req.get('authorization')
@@ -41,7 +41,7 @@ const criarTerapeuta = async (req,res) => {
     if(!token){
         return res.status(403).send({message: 'Insira o token!'})
     }
-    jwt.verify(token, SECRETADM, async(err) => {
+    jwt.verify(token, SECRET_ADM, async(err) => {
         if (err) {
             return res.status(403).send({message: 'Token não válido!', err})
         }
@@ -78,7 +78,7 @@ const atualizarTerapeuta = async (req, res) => {
     if(!token){
         return res.status(403).send({message: 'Insira o token!'})
     }
-    jwt.verify(token, SECRETADM, async(err) => {
+    jwt.verify(token, SECRET_ADM, async(err) => {
         if (err) {
             return res.status(403).send({message: 'Token não válido!', err})
         }try {
@@ -130,7 +130,7 @@ const deletarTerapeuta = async (req, res) => {
     if(!token){
         return res.status(403).send({message: 'Insira o token!'})
     }
-    jwt.verify(token, SECRETADM, async(err) => {
+    jwt.verify(token, SECRET_ADM, async(err) => {
         if (err) {
             return res.status(403).send({message: 'Token não válido!', err})
         }
@@ -155,7 +155,7 @@ const getById = async (req, res) => {
         if(!token){
             return res.status(403).send({message: 'Insira o token!'})
     }
-    jwt.verify(token, SECRETADM, async(err) => {
+    jwt.verify(token, SECRET_ADM, async(err) => {
         if (err) {
             return res.status(403).send({message: 'Token não válido!', err})
         }
@@ -172,7 +172,7 @@ const getByEspecialidade = async (req, res) => {
     if(!token){
         return res.status(403).send({message: 'Insira o token!'})
     }
-    jwt.verify(token, SECRETADM, SECRETUSER, async(err) => {
+    jwt.verify(token, SECRET_ADM, SECRET_USER, async(err) => {
         if (err) {
             return res.status(403).send({message: 'Token não válido!', err})
         }
@@ -191,7 +191,7 @@ const getByAbordagem = async (req,res) => {
     if(!token){
         return res.status(403).send({message: 'Insira o token!'})
     }
-    jwt.verify(token, SECRETADM, SECRETUSER, async(err) => {
+    jwt.verify(token, SECRET_ADM, SECRET_USER, async(err) => {
         if (err) {
             return res.status(403).send({message: 'Token não válido!', err})
         }
@@ -210,7 +210,7 @@ const getByConvenio = async (req,res) => {
     if(!token){
         return res.status(403).send({message: 'Insira o token!'})
     }
-    jwt.verify(token, SECRETADM, SECRETUSER, async(err) => {
+    jwt.verify(token, SECRET_ADM, SECRET_USER, async(err) => {
         if (err) {
             return res.status(403).send({message: 'Token não válido!', err})
         }

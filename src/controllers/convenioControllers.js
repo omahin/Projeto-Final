@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const convenio = require('../models/convenio')
 const Convenio = require('../models/convenio')
 const jwt = require('jsonwebtoken')
-const SECRETADM = process.env.SECRETADM
+const SECRET_ADM = process.env.SECRET_ADM
 
 const criarConvenio = async (req, res) => {
     const authHeader = req.get('authorization')
@@ -10,7 +10,7 @@ const criarConvenio = async (req, res) => {
     if(!token){
         return res.status(403).send({message: 'Insira o token!'})
     }
-    jwt.verify(token, SECRETADM, async(err) => {
+    jwt.verify(token, SECRET_ADM, async(err) => {
         if (err) {
             return res.status(403).send({message: 'Token não válido!', err})
         }
@@ -29,7 +29,7 @@ const todos = async (req,res) => {
     if(!token){
         return res.status(403).send({message: 'Insira o token!'})
     }
-    jwt.verify(token, SECRETADM, async(err) => {
+    jwt.verify(token, SECRET_ADM, async(err) => {
         if (err) {
             return res.status(403).send({message: 'Token não válido!', err})
         }
@@ -44,7 +44,7 @@ const verPorId = async (req, res) => {
     if(!token){
         return res.status(403).send({message: 'Insira o token!'})
     }
-    jwt.verify(token, SECRETADM, async(err) => {
+    jwt.verify(token, SECRET_ADM, async(err) => {
         if (err) {
             return res.status(403).send({message: 'Token não válido!', err})
         }
