@@ -95,7 +95,7 @@ A API cadastrará psicólogos e seus serviços, por exemplo: tipo de abordagem, 
 
 ## Demonstração da Aplicação
 
-[!Projeto rodando no Postman]()
+[!Projeto rodando no Postman](./img/ProgramaPSI.png)
 ## Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
