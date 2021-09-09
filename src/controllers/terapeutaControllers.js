@@ -69,7 +69,7 @@ const atualizarTerapeuta = async (req, res) => {
     if(!token){
         return res.status(403).send({message: 'Insira o token!'})
     }
-    jwt.verify(token, SECRET, async(err) => {
+    jwt.verify(token, SECRETADM, async(err) => {
         if (err) {
             return res.status(403).send({message: 'Token não válido!', err})
         }try {
