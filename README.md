@@ -162,9 +162,9 @@ Gostaria de agradecer imensamente a oportunidade de ter participado desse curso 
 ## 👩🏽‍💻 Desenvolvedora
 
 <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/79282971?v=4" width="100px;" alt="">
-
+<br />
 <sub><b>Olga Mahin</b></sub></a> <a >🚀</a>
-
+<br />
 Feito com ❤️ 👋🏽 Entre em contato!
 
 [![Linkedin Badge](https://img.shields.io/badge/-OlgaMahin-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/omahin/)](https://www.linkedin.com/in/omahin/) 
