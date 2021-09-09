@@ -4,13 +4,15 @@ const Terapeuta = require('../models/terapeuta')
 const jwt = require('jsonwebtoken')
 const SECRET_USER = process.env.SECRET_USER
 const SECRET_ADM = process.env.SECRET_ADM
+const secret1 = jwt.verify(token, SECRET_ADM)
+const secret2 = jwt.verify(token, SECRET_USER)
 
 const todos = async (req, res) => {
     const authHeader = req.get('Authorization')
     const token = authHeader.split(' ')[1]
     if (!token){
         return res.status(403).send({message: "Insira o token!"})
-    }if(jwt.verify(token, SECRET_ADM) || jwt.verify(token, SECRET_USER)){
+    }if (secret1 || secret2){
         return res.status(200).send({message: "Chegou no IF"})
     } else{
         res.status(403).send({message: "Token não válido!"})
@@ -18,6 +20,9 @@ const todos = async (req, res) => {
         const terapeutas = await Terapeuta.find()
             res.status(200).json(terapeutas)
     }
+
+
+
 
 // const todosUSer = async (req, res) => {
 //     const authHeader = req.get('authorization')
