@@ -4,9 +4,9 @@
   <img src="https://github.com/omahin/Projeto-Final/blob/main/src/img/logoprocurapsi.png" width = "200"/>
 </p>
 
-<h3 align="center">🕵🏼 Api direcionada para cadastro e pesquisa de profissionais que cuidem da saúde mental 🕵🏽‍♀️</h3>
+<h4 align="center">🕵🏼🕵🏽‍♀️ Api direcionada para cadastro e pesquisa de profissionais que cuidem da saúde mental </h4>
 
-<h3 align="center">Status do Projeto: 🚧 Em construção... 🚧</h3>
+<h5 align="center">Status do Projeto: 🚧 Em construção... 🚧</h5>
 
 ## 💻 Sobre o Projeto 
 
