@@ -7,11 +7,11 @@ const SECRETADM = process.env.SECRETADM
 // const {utils} = require('../utils/authUtils')
 
 const todos = (req, res) => {
-    // const authHeader = req.get('authorization')
-    // const token = authHeader.split(' ')[1]
-    const token = utils(req, res)
+    const authHeader = req.get('authorization')
+    const token = authHeader.split(' ')[1]
+    // const token = utils(req, res)
     // const auth = authHeader.split(' ')[1]
-    if (isAdmin(req, res) && isLoggedIn(req, res)){
+    if (!token){
         return res.status(403).send({message: "Insira o token!"})
     }
     jwt.verify(token, SECRETADM, async(err)=>{
