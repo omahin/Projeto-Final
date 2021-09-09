@@ -11,13 +11,13 @@ const todos = async (req, res) => {
     if (!token){
         return res.status(403).send({message: "Insira o token!"})
     }
-    jwt.verify(token, SECRETADM, async(err) => {
+    jwt.verify(token, SECRETADM, SECRETUSER, async(err) => {
         if(err){
             res.status(403).send({message: "Token não válido!", err})
         }
+        const terapeutas = await Terapeuta.find()
+            res.status(200).json(terapeutas)
     })
-    const terapeutas = await Terapeuta.find()
-    res.status(200).json(terapeutas)
 }
 
 const criarTerapeuta = async (req,res) => {
@@ -31,7 +31,6 @@ const criarTerapeuta = async (req,res) => {
             return res.status(403).send({message: 'Token não válido!', err})
         }
     const terapeuta = new Terapeuta({
-        // _id: mongoose.Schema.Types.ObjectId,
         nome: req.body.nome,
         numeroCrp: req.body.numeroCrp,
         especialidade: req.body.especialidade,
@@ -46,16 +45,14 @@ const criarTerapeuta = async (req,res) => {
         atualizadoEm: req.body.atualizadoEm,
     })
 
-    //não é possível cadastrar novoterapeuta com qlq um dos parametros acima
     const terapeutaJaExiste = await Terapeuta.findOne({nome: req.body.nome})
-    if (terapeutaJaExiste) {
-    return res.status(409).json({error: 'Profissional já cadastrado, tente novamente!'})
-    //tenta salvar o novo terapeuta, caso dê erro me retorne o erro.
+        if (terapeutaJaExiste) {
+            return res.status(409).json({error: 'Profissional já cadastrado, tente novamente!'})
         }try{
-        const novoTerapeuta = await terapeuta.save()
-        res.status(201).json(novoTerapeuta)
+            const novoTerapeuta = await terapeuta.save()
+            res.status(201).json(novoTerapeuta)
         }catch(err){
-        res.status(400).json({message: err.message})
+            res.status(400).json({message: err.message})
         }
     })
 }
@@ -70,9 +67,9 @@ const atualizarTerapeuta = async (req, res) => {
         if (err) {
             return res.status(403).send({message: 'Token não válido!', err})
         }try {
-        const terapeuta = await Terapeuta.findById(req.params.id)
+            const terapeuta = await Terapeuta.findById(req.params.id)
         if(terapeuta == null){
-        return res.status(404).json({message: "Terapeuta não localizado!"})
+            return res.status(404).json({message: "Terapeuta não localizado!"})
         }
         if (req.body.nome != null){
         terapeuta.nome = req.body.nome
@@ -105,7 +102,7 @@ const atualizarTerapeuta = async (req, res) => {
         terapeuta.telefoneParaContato = req.body.telefoneParaContato
         }
         const terapeutaAtualizado = await terapeuta.save()
-        res.status(200).json(terapeutaAtualizado)
+            res.status(200).json(terapeutaAtualizado)
         } catch (err) {
             res.status(500).json({message: err.message})
         }
@@ -118,7 +115,7 @@ const deletarTerapeuta = async (req, res) => {
     if(!token){
         return res.status(403).send({message: 'Insira o token!'})
     }
-    jwt.verify(token, SECRET, async(err) => {
+    jwt.verify(token, SECRETADM, async(err) => {
         if (err) {
             return res.status(403).send({message: 'Token não válido!', err})
         }
@@ -140,10 +137,10 @@ const deletarTerapeuta = async (req, res) => {
 const getById = async (req, res) => {
     const authHeader = req.get('authorization')
     const token = authHeader.split(' ')[1]
-    if(!token){
-        return res.status(403).send({message: 'Insira o token!'})
+        if(!token){
+            return res.status(403).send({message: 'Insira o token!'})
     }
-    jwt.verify(token, SECRET, async(err) => {
+    jwt.verify(token, SECRETADM, async(err) => {
         if (err) {
             return res.status(403).send({message: 'Token não válido!', err})
         }
@@ -160,7 +157,7 @@ const getByEspecialidade = async (req, res) => {
     if(!token){
         return res.status(403).send({message: 'Insira o token!'})
     }
-    jwt.verify(token, SECRET, async(err) => {
+    jwt.verify(token, SECRETADM, SECRETUSER, async(err) => {
         if (err) {
             return res.status(403).send({message: 'Token não válido!', err})
         }
@@ -179,7 +176,7 @@ const getByAbordagem = async (req,res) => {
     if(!token){
         return res.status(403).send({message: 'Insira o token!'})
     }
-    jwt.verify(token, SECRET, async(err) => {
+    jwt.verify(token, SECRETADM, SECRETUSER, async(err) => {
         if (err) {
             return res.status(403).send({message: 'Token não válido!', err})
         }
@@ -198,7 +195,7 @@ const getByConvenio = async (req,res) => {
     if(!token){
         return res.status(403).send({message: 'Insira o token!'})
     }
-    jwt.verify(token, SECRET, async(err) => {
+    jwt.verify(token, SECRETADM, SECRETUSER, async(err) => {
         if (err) {
             return res.status(403).send({message: 'Token não válido!', err})
         }

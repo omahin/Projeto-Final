@@ -3,7 +3,6 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const SECRETADM = process.env.SECRETADM
 
-
 const criarAdm = async (req, res) => {
   const senhaComHash = bcrypt.hashSync(req.body.senha, 8)
   req.body.senha = senhaComHash

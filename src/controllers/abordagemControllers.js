@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const abordagem = require('../models/abordagem')
 const Abordagem = require('../models/abordagem')
 const jwt = require('jsonwebtoken')
-const SECRET = process.env.SECRET
+const SECRETADM = process.env.SECRETADM
 
 const criarAbordagem = async (req, res) => {
     const authHeader = req.get('authorization')
@@ -10,7 +10,7 @@ const criarAbordagem = async (req, res) => {
     if(!token){
         return res.status(403).send({message: 'Insira o token!'})
     }
-    jwt.verify(token, SECRET, async(err) => {
+    jwt.verify(token, SECRETADM, async(err) => {
         if (err) {
             return res.status(403).send({message: 'Token não válido!', err})
         }
@@ -32,15 +32,35 @@ const criarAbordagem = async (req, res) => {
 }
 
 const todos = async (req, res) => {
-    const abordagem = await Abordagem.find()
-    res.status(201).json(abordagem)
+    const authHeader = req.get('authorization')
+    const token = authHeader.split(' ')[1]
+    if(!token){
+        return res.status(403).send({message: 'Insira o token!'})
+    }
+    jwt.verify(token, SECRETADM, async(err) => {
+        if (err) {
+            return res.status(403).send({message: 'Token não válido!', err})
+        }
+        const abordagem = await Abordagem.find()
+        res.status(201).json(abordagem)
+    })
 }
 
 const verPorId = async (req, res) => {
-    const abordagems = await Abordagem.find()
-    const abordagemId = req.params.id
-    const filterAbordagem = abordagems.filter(abordagem => abordagem.id == abordagemId)
-    res.status(201).json(filterAbordagem)
+    const authHeader = req.get('authorization')
+    const token = authHeader.split(' ')[1]
+    if(!token){
+        return res.status(403).send({message: 'Insira o token!'})
+    }
+    jwt.verify(token, SECRETADM, async(err) => {
+        if (err) {
+            return res.status(403).send({message: 'Token não válido!', err})
+        }
+        const abordagems = await Abordagem.find()
+        const abordagemId = req.params.id
+        const filterAbordagem = abordagems.filter(abordagem => abordagem.id == abordagemId)
+        res.status(201).json(filterAbordagem)
+    })
 }
 
 module.exports = {
