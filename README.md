@@ -87,9 +87,9 @@ A API cadastrará psicólogos e seus serviços, por exemplo: tipo de abordagem, 
 
 * Não deverá ser possível cadastrar profissional com mesmos dados já inseridos uma vez.
 
-* Todas as rotas estão autenticadas.
+* Todas as rotas serão autenticadas.
 
-* O usuário adminitrador tem permissão de acesso para todas as rotas.
+* Apenas o usuário administrador terá permissão de acesso para todas as rotas.
 
 * O usuário cadastrado não poderá criar, atualizar ou deletar dados, apenas visualizá-los e filtrá-los.
 
