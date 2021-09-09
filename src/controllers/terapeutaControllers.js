@@ -11,7 +11,7 @@ const todos = async (req, res) => {
     if (!token){
         return res.status(403).send({message: "Insira o token!"})
     }
-    jwt.verify(token, SECRETADM, SECRETUSER, async(err) => {
+    jwt.verify(token, SECRETADM && SECRETUSER, async(err) => {
         if(err){
             res.status(403).send({message: "Token não válido!", err})
         }
@@ -157,7 +157,7 @@ const getByEspecialidade = async (req, res) => {
     if(!token){
         return res.status(403).send({message: 'Insira o token!'})
     }
-    jwt.verify(token, SECRETADM, SECRETUSER, async(err) => {
+    jwt.verify(token, SECRETADM && SECRETUSER, async(err) => {
         if (err) {
             return res.status(403).send({message: 'Token não válido!', err})
         }
@@ -176,7 +176,7 @@ const getByAbordagem = async (req,res) => {
     if(!token){
         return res.status(403).send({message: 'Insira o token!'})
     }
-    jwt.verify(token, SECRETADM, SECRETUSER, async(err) => {
+    jwt.verify(token, SECRETADM && SECRETUSER, async(err) => {
         if (err) {
             return res.status(403).send({message: 'Token não válido!', err})
         }
@@ -195,7 +195,7 @@ const getByConvenio = async (req,res) => {
     if(!token){
         return res.status(403).send({message: 'Insira o token!'})
     }
-    jwt.verify(token, SECRETADM, SECRETUSER, async(err) => {
+    jwt.verify(token, SECRETADM && SECRETUSER, async(err) => {
         if (err) {
             return res.status(403).send({message: 'Token não válido!', err})
         }
