@@ -6,7 +6,7 @@ const SECRETUSER = process.env.SECRETUSER
 const SECRETADM = process.env.SECRETADM
 // const {utils} = require('../utils/authUtils')
 
-const todos = (req, res) => {
+const todos = async (req, res) => {
     const authHeader = req.get('authorization')
     const token = authHeader.split(' ')[1]
     // const token = utils(req, res)
