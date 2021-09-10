@@ -18,5 +18,14 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.2",
     "nodemon": "^2.0.12"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omahin/Projeto-Final.git"
+  },
+  "bugs": {
+    "url": "https://github.com/omahin/Projeto-Final/issues"
+  },
+  "homepage": "https://github.com/omahin/Projeto-Final#readme"
 }
