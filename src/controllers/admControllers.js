@@ -1,7 +1,8 @@
 const Adm = require('../models/adm')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const SECRET_ADM = process.env.SECRET_ADM
+// const SECRET = process.env.SECRET
+const SECRET = process.env.SECRET
 
 const criarAdm = async (req, res) => {
   const senhaComHash = bcrypt.hashSync(req.body.senha, 8)
@@ -27,8 +28,8 @@ const login = (req, res) => {
       return res.status(401).send({message: "Login não autorizado"})
     }
 
-    const token = jwt.sign({email: req.body.email}, SECRET_ADM)
-    res.status(200).send({ messagem: "Login realizado com sucesso", token: token})
+    const token = jwt.sign({email: req.body.email}, SECRET)
+    res.status(200).send({ messagem: "Login realizado com sucesso", token: token, role:admEncontrado.role})
 })
 
 }

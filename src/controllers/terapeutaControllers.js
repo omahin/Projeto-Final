@@ -2,16 +2,18 @@ const mongoose = require('mongoose')
 const terapeuta = require('../models/terapeuta')
 const Terapeuta = require('../models/terapeuta')
 const jwt = require('jsonwebtoken')
-const SECRET_USER = process.env.SECRET_USER
-const SECRET_ADM = process.env.SECRET_ADM
+// const SECRET_USER = process.env.SECRET_USER
+// const SECRET_ADM = process.env.SECRET_ADM
+const SECRET = process.env.SECRET
+const { isAdm, isLoggedIn } = require('../utils/authUtils')
 
 const todos = async (req, res) => {
     const authHeader = req.get('Authorization')
     const token = authHeader.split(' ')[1]
-    if (!token){
+    if(isAdm(req, res) && isLoggedIn(req, res)){
         return res.status(403).send({message: "Insira o token!"})
     }
-    jwt.verify(token, SECRET_ADM, SECRET_USER, async(err) => {
+    jwt.verify(token, SECRET, async(err) => {
         if(err){
             res.status(403).send({message: "Token não válido!", err})
         }

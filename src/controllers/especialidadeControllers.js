@@ -2,7 +2,8 @@ const mongoose = require('mongoose')
 const especialidade = require('../models/especialidade')
 const Especialidade = require('../models/especialidade')
 const jwt = require('jsonwebtoken')
-const SECRET_ADM = process.env.SECRET_ADM
+// const SECRET = process.env.SECRET
+const SECRET = process.env.SECRET
 
 const criarEspecialidade = async (req,res) => {
     const authHeader = req.get('authorization')

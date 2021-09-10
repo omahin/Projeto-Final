@@ -2,7 +2,8 @@ const mongoose = require('mongoose')
 const abordagem = require('../models/abordagem')
 const Abordagem = require('../models/abordagem')
 const jwt = require('jsonwebtoken')
-const SECRET_ADM = process.env.SECRET_ADM
+// const SECRET = process.env.SECRET
+const SECRET = process.env.SECRET
 
 const criarAbordagem = async (req, res) => {
     const authHeader = req.get('authorization')
