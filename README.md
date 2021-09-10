@@ -10,7 +10,7 @@ https://img.shields.io/github/license/omahin/Projeto-Final
 
 <h5 align="center">Status do Projeto: 🚧 Em construção... 🚧</h5>
 
-## 💻 Sobre o Projeto 
+## 💻 Sobre o projeto 
 
 ### Problema
 
@@ -25,10 +25,10 @@ A API cadastrará psicólogos e seus serviços, por exemplo: tipo de abordagem, 
 - [Sobre o projeto](#sobre-o-projeto)
 - [Problema](#problema)
 - [Solução](#solução)
-- [Sumário](#sumário)
 - [Funcionalidades](#funcionalidades)
 - [Rotas](#rotas)
 - [Regras de negócio](#regras-de-negócio)
+- [Documentação da api](#documentação-da-api)
 - [Demonstração da api](#demonstração-da-api)
 - [Pré requisitos](#pré-requisitos)
 - [Rodando o back end](#rodando-o-back-end)
@@ -83,7 +83,7 @@ A API cadastrará psicólogos e seus serviços, por exemplo: tipo de abordagem, 
 | ------------------- | :-------------------: |
 |  /terapeuta/:id |  Deleta um terapeuta baseado em seu id |
 
-## 📝 Regras de Negócio
+## 📝 Regras de negócio
 
 * Não deverá ser possível cadastrar profissional com mesmos dados já inseridos uma vez.
 
@@ -93,21 +93,23 @@ A API cadastrará psicólogos e seus serviços, por exemplo: tipo de abordagem, 
 
 * O usuário cadastrado não poderá criar, atualizar ou deletar dados, apenas visualizá-los e filtrá-los.
 
-## 📝 Documentação da api no postman
+## 📝 Documentação da api
 
 Acesse o link abaixo para ter acesso a API documentada:
+
 https://documenter.getpostman.com/view/17052005/U16kqQKQ
 
-## ▶️ Demonstração da Aplicação no Postman 
+## ▶️ Demonstração da aplicação
 
 ![Projeto rodando no Postman](https://github.com/omahin/Projeto-Final/blob/main/img/procurapsi.gif)
+
 ## Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/). 
 Além disto é bom ter um editor para trabalhar com o código como o [VSCode](https://code.visualstudio.com/).
 
-### 🎲 Rodando o Back End
+### 🎲 Rodando o back end
 
 ```bash
 # Clone este repositório
@@ -127,7 +129,7 @@ $ npm start
 
 # O servidor inciará na porta:3333 - acesse <mongodb://localhost:27017/procura-psi>
 ```
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Tecnologias utilizadas
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
@@ -135,7 +137,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [Node.js](https://nodejs.org/en/)
 - [Git](https://git-scm.com/)
 
-## 🛠️ Pacotes Utilizados
+## 🛠️ Pacotes utilizados
 
 * express
 * nodemon
@@ -145,7 +147,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 * jsonwebtoken
 * cors
 
-## 🔮 Implementações Futuras 
+## 🔮 Implementações futuras 
 
 No futuro, integrar o back com o front, criando a interface visual da API para aplicativo mobile.
 
