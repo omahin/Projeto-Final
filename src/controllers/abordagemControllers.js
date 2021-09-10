@@ -2,14 +2,13 @@ const mongoose = require('mongoose')
 const abordagem = require('../models/abordagem')
 const Abordagem = require('../models/abordagem')
 const jwt = require('jsonwebtoken')
-// const SECRET = process.env.SECRET
-const SECRET = process.env.SECRET
+const SECRET_ADM = process.env.SECRET_ADM
 
 const criarAbordagem = async (req, res) => {
-    const authHeader = req.get('authorization')
+    const authHeader = req.get('Authorization')
     const token = authHeader.split(' ')[1]
     if(!token){
-        return res.status(403).send({message: 'Insira o token!'})
+        return res.status(403).send({message: 'Insira o token para autorizar!'})
     }
     jwt.verify(token, SECRET_ADM, async(err) => {
         if (err) {
@@ -29,14 +28,14 @@ const criarAbordagem = async (req, res) => {
         }catch(err){
         res.status(400).json({message: err.message})
         }
-     })
+    })
 }
 
 const todos = async (req, res) => {
-    const authHeader = req.get('authorization')
+    const authHeader = req.get('Authorization')
     const token = authHeader.split(' ')[1]
     if(!token){
-        return res.status(403).send({message: 'Insira o token!'})
+        return res.status(403).send({message: 'Insira o token para autorizar!'})
     }
     jwt.verify(token, SECRET_ADM, async(err) => {
         if (err) {
@@ -48,10 +47,10 @@ const todos = async (req, res) => {
 }
 
 const verPorId = async (req, res) => {
-    const authHeader = req.get('authorization')
+    const authHeader = req.get('Authorization')
     const token = authHeader.split(' ')[1]
     if(!token){
-        return res.status(403).send({message: 'Insira o token!'})
+        return res.status(403).send({message: 'Insira o token para autorizar!'})
     }
     jwt.verify(token, SECRET_ADM, async(err) => {
         if (err) {

@@ -1,20 +1,17 @@
 const mongoose = require('mongoose')
-const terapeuta = require('../models/terapeuta')
 const Terapeuta = require('../models/terapeuta')
 const jwt = require('jsonwebtoken')
-// const SECRET_USER = process.env.SECRET_USER
-// const SECRET_ADM = process.env.SECRET_ADM
-const SECRET = process.env.SECRET
-const { isAdm, isLoggedIn } = require('../utils/authUtils')
+const SECRET_USER = process.env.SECRET_USER
+const SECRET_ADM = process.env.SECRET_ADM
 
 const todos = async (req, res) => {
     const authHeader = req.get('Authorization')
     const token = authHeader.split(' ')[1]
     if(!token){
-        return res.status(403).send({message: "Insira o token!"})
+        return res.status(403).send({message: "Insira o token para autorizar!"})
     }
-    jwt.verify(token, SECRET, async(err) => {
-        if(isAdm(req, res) && isLoggedIn(req, res)){
+    jwt.verify(token, SECRET_ADM, SECRET_USER, async(err) => {
+        if(err){
             res.status(403).send({message: "Token não válido!", err})
         }
         const terapeutas = await Terapeuta.find()
@@ -23,10 +20,10 @@ const todos = async (req, res) => {
 }
 
 const criarTerapeuta = async (req,res) => {
-    const authHeader = req.get('authorization')
+    const authHeader = req.get('Authorization')
     const token = authHeader.split(' ')[1]
     if(!token){
-        return res.status(403).send({message: 'Insira o token!'})
+        return res.status(403).send({message: 'Insira o token para autorizar!'})
     }
     jwt.verify(token, SECRET_ADM, async(err) => {
         if (err) {
@@ -60,10 +57,10 @@ const criarTerapeuta = async (req,res) => {
 }
 
 const atualizarTerapeuta = async (req, res) => {
-    const authHeader = req.get('authorization')
+    const authHeader = req.get('Authorization')
     const token = authHeader.split(' ')[1]
     if(!token){
-        return res.status(403).send({message: 'Insira o token!'})
+        return res.status(403).send({message: 'Insira o token para autorizar!'})
     }
     jwt.verify(token, SECRET_ADM, async(err) => {
         if (err) {
@@ -112,10 +109,10 @@ const atualizarTerapeuta = async (req, res) => {
 } 
 
 const deletarTerapeuta = async (req, res) => {
-    const authHeader = req.get('authorization')
+    const authHeader = req.get('Authorization')
     const token = authHeader.split(' ')[1]
     if(!token){
-        return res.status(403).send({message: 'Insira o token!'})
+        return res.status(403).send({message: 'Insira o token para autorizar!'})
     }
     jwt.verify(token, SECRET_ADM, async(err) => {
         if (err) {
@@ -137,10 +134,10 @@ const deletarTerapeuta = async (req, res) => {
 }
 
 const getById = async (req, res) => {
-    const authHeader = req.get('authorization')
+    const authHeader = req.get('Authorization')
     const token = authHeader.split(' ')[1]
         if(!token){
-            return res.status(403).send({message: 'Insira o token!'})
+            return res.status(403).send({message: 'Insira o token para autorizar!'})
     }
     jwt.verify(token, SECRET_ADM, async(err) => {
         if (err) {
@@ -154,10 +151,10 @@ const getById = async (req, res) => {
 }
 
 const getByEspecialidade = async (req, res) => {
-    const authHeader = req.get('authorization')
+    const authHeader = req.get('Authorization')
     const token = authHeader.split(' ')[1]
     if(!token){
-        return res.status(403).send({message: 'Insira o token!'})
+        return res.status(403).send({message: 'Insira o token para autorizar!'})
     }
     jwt.verify(token, SECRET_ADM, SECRET_USER, async(err) => {
         if (err) {
@@ -173,10 +170,10 @@ const getByEspecialidade = async (req, res) => {
 }
 
 const getByAbordagem = async (req,res) => {
-    const authHeader = req.get('authorization')
+    const authHeader = req.get('Authorization')
     const token = authHeader.split(' ')[1]
     if(!token){
-        return res.status(403).send({message: 'Insira o token!'})
+        return res.status(403).send({message: 'Insira o token para autorizar!'})
     }
     jwt.verify(token, SECRET_ADM, SECRET_USER, async(err) => {
         if (err) {
@@ -192,10 +189,10 @@ const getByAbordagem = async (req,res) => {
 }
 
 const getByConvenio = async (req,res) => {
-    const authHeader = req.get('authorization')
+    const authHeader = req.get('Authorization')
     const token = authHeader.split(' ')[1]
     if(!token){
-        return res.status(403).send({message: 'Insira o token!'})
+        return res.status(403).send({message: 'Insira o token para autorizar!'})
     }
     jwt.verify(token, SECRET_ADM, SECRET_USER, async(err) => {
         if (err) {
