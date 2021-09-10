@@ -30,6 +30,7 @@ const criarTerapeuta = async (req,res) => {
             return res.status(403).send({message: 'Token não válido!', err})
         }
     const terapeuta = new Terapeuta({
+        // _id: new mongoose.Types.ObjectId(),
         nome: req.body.nome,
         numeroCrp: req.body.numeroCrp,
         especialidade: req.body.especialidade,

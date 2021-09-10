@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 
 const terapeutaSchema = new mongoose.Schema({
+    // _id: new mongoose.Types.ObjectId(),
     nome: {
         type: String,
         required: true,
