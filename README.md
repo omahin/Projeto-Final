@@ -93,6 +93,11 @@ A API cadastrará psicólogos e seus serviços, por exemplo: tipo de abordagem, 
 
 * O usuário cadastrado não poderá criar, atualizar ou deletar dados, apenas visualizá-los e filtrá-los.
 
+## 📝 Documentação da api no postman
+
+Acesse o link abaixo para ter acesso a API documentada:
+https://documenter.getpostman.com/view/17052005/U16kqQKQ
+
 ## ▶️ Demonstração da Aplicação no Postman 
 
 ![Projeto rodando no Postman](https://github.com/omahin/Projeto-Final/blob/main/img/procurapsi.gif)
