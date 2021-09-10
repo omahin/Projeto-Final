@@ -10,7 +10,14 @@ const todos = async (req, res) => {
     if(!token){
         return res.status(403).send({message: "Insira o token para autorizar!"})
     }
-    jwt.verify(token, SECRET_ADM, SECRET_USER, async(err) => {
+    jwt.verify(token, SECRET_ADM, async(err) => {
+        if(err){
+            res.status(403).send({message: "Token não válido!", err})
+        }
+        const terapeutas = await Terapeuta.find()
+            res.status(200).json(terapeutas)
+    })
+    jwt.verify(token, SECRET_USER, async(err) => {
         if(err){
             res.status(403).send({message: "Token não válido!", err})
         }

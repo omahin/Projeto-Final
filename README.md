@@ -1,3 +1,5 @@
+https://img.shields.io/github/license/omahin/Projeto-Final
+
 <p align="center">REPROGRAMA 🚀 | Turma On12 BACKEND | PROJETO FINAL 🚀</p>
 
 <p align="center">
@@ -20,20 +22,20 @@ A API cadastrará psicólogos e seus serviços, por exemplo: tipo de abordagem, 
 
 ## 📝 Sumário
 
-- [Sobre o Projeto](#sobre-o-projeto)
+- [Sobre o projeto](#sobre-o-projeto)
 - [Problema](#problema)
 - [Solução](#solução)
 - [Sumário](#sumário)
 - [Funcionalidades](#funcionalidades)
 - [Rotas](#rotas)
-- [Regras de Negócio](#regras-de-negócio)
-- [Demonstração da API](#demonstração-da-api)
-- [Pré Requisitos](#pré-requisitos)
-- [Rodando o Back End](#rodando-o-back-end)
-- [Tecnologias Utilizadas](#tecnologias-utilizadas)
-- [Pacotes Utilizados](#pacotes-utilizados)
-- [Implementações Futuras](#implementações-futuras)
-- [Gostaria de Contribuir?](#gostaria-de-contribuir?)
+- [Regras de negócio](#regras-de-negócio)
+- [Demonstração da api](#demonstração-da-api)
+- [Pré requisitos](#pré-requisitos)
+- [Rodando o back end](#rodando-o-back-end)
+- [Tecnologias utilizadas](#tecnologias-utilizadas)
+- [Pacotes utilizados](#pacotes-utilizados)
+- [Implementações futuras](#implementações-futuras)
+- [Gostaria de contribuir?](#gostaria-de-contribuir?)
 - [Licença](#licença)
 - [Agradecimentos](#agradecimentos)
 - [Desenvolvedora](#desenvolvedora)
