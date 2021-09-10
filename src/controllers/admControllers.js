@@ -29,7 +29,7 @@ const login = (req, res) => {
     }
 
     const token = jwt.sign({email: req.body.email}, SECRET)
-    res.status(200).send({ messagem: "Login realizado com sucesso", token: token, role:admEncontrado.role})
+    res.status(200).send({ messagem: "Login realizado com sucesso", token: token, email:admEncontrado.email})
 })
 
 }
