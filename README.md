@@ -1,7 +1,7 @@
 <p align="center">REPROGRAMA 🚀 | Turma On12 BACKEND | PROJETO FINAL 🚀</p>
 
 <p align="center">
-  <img src="https://github.com/omahin/Projeto-Final/blob/main/src/img/logoprocurapsi.png" width = "200"/>
+  <img src="https://github.com/omahin/Projeto-Final/blob/main/img/logoprocurapsi.png" width = "200"/>
 </p>
 
 <h4 align="center">🕵🏼🕵🏽‍♀️ Api direcionada para cadastro e pesquisa de profissionais que cuidem da saúde mental </h4>
