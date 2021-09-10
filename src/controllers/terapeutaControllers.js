@@ -10,11 +10,11 @@ const { isAdm, isLoggedIn } = require('../utils/authUtils')
 const todos = async (req, res) => {
     const authHeader = req.get('Authorization')
     const token = authHeader.split(' ')[1]
-    if(isAdm(req, res) && isLoggedIn(req, res)){
+    if(!token){
         return res.status(403).send({message: "Insira o token!"})
     }
     jwt.verify(token, SECRET, async(err) => {
-        if(err){
+        if(isAdm(req, res) && isLoggedIn(req, res)){
             res.status(403).send({message: "Token não válido!", err})
         }
         const terapeutas = await Terapeuta.find()
