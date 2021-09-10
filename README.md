@@ -19,25 +19,23 @@ Devido a procura crescente por Psicoterapia devido a pandemia e ao confinamento 
 A API cadastrará psicólogos e seus serviços, por exemplo: tipo de abordagem, se é conveniado a algum plano, se atende particular, onde atende, valor da consulta, etc… A ideia é que a API seja alimentada pelos profissionais de saúde e que o banco de dados seja utilizado em um aplicativo mobile, de forma a facilitar a atualização de seus serviços, como também a consulta das informações pelos usuários.
 
 ## 📝 Tabela de Conteúdo
-
-[Sobre o Projeto](#sobre-o-projeto)
-[Problema](#problema)
-[Solução](#solucao)
-[Tabela de Conteudo](#tabela-de-conteudo)
-[Funcionalidades](#funcionalidades)
-[Rotas](#rotas)
-[Regras de Negócio](#regras-de-negocio)
-[Demonstração da API](#demonstracao-da-api)
-[Pré Requisitos](#pre-requisitos)
-[Rodando o Back End](#rodando-o-back-end)
-[Tecnologias Utilizadas](#tecnologias-utilizadas)
-[Pacotes Utilizados](#pacotes-utilizados)
-[Implementações Futuras](#implementações-futuras)
-[Gostaria de Contribuir?](#gostaria-de-contribuir?)
-[Licença](#licenca)
-[Agradecimentos](#agradecimentos)
-[Desenvolvedora](#Desenvolvedora)
-<!--te-->
+1. [Sobre o Projeto](#sobre-o-projeto)
+2. [Problema](#problema)
+3. [Solução](#solucao)
+4. [Tabela de Conteudo](#tabela-de-conteudo)
+5. [Funcionalidades](#funcionalidades)
+6. [Rotas](#rotas)
+7. [Regras de Negócio](#regras-de-negocio)
+8. [Demonstração da API](#demonstracao-da-api)
+9. [Pré Requisitos](#pre-requisitos)
+10. [Rodando o Back End](#rodando-o-back-end)
+11. [Tecnologias Utilizadas](#tecnologias-utilizadas)
+12. [Pacotes Utilizados](#pacotes-utilizados)
+13. [Implementações Futuras](#implementações-futuras)
+14. [Gostaria de Contribuir?](#gostaria-de-contribuir?)
+15. [Licença](#licenca)
+16. [Agradecimentos](#agradecimentos)
+17. [Desenvolvedora](#Desenvolvedora)
 
 ## ⚙️ Funcionalidades
 
