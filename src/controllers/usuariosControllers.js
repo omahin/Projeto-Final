@@ -27,7 +27,7 @@ const login = (req, res) => {
       return res.status(401).send({message: "Login não autorizado, senha incorreta!"})
     }
     const token = jwt.sign({email: req.body.email}, 'secret', {expiresIn : '24h'}, SECRET)
-    res.status(200).send({ message: "Login realizado com sucesso", token: token, role:usuarioEncontrado.role})
+    res.status(200).send({ message: "Login realizado com sucesso", token: token, email:usuarioEncontrado.email})
   })
 }
 
