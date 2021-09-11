@@ -8,6 +8,8 @@
 
 <h5 align="center">Status do Projeto: 🚧 Em construção... 🚧</h5>
 
+<br>
+
 ## 💻 Sobre o projeto 
 
 ### Problema
@@ -29,7 +31,7 @@ A API cadastrará psicólogos e seus serviços, por exemplo: tipo de abordagem, 
 - [Documentação da api](#documentação-da-api)
 - [Demonstração da api](#demonstração-da-api)
 - [Pré requisitos](#pré-requisitos)
-  - [Rodando o back end](#rodando-o-back-end)
+- [Rodando o back end](#rodando-o-back-end)
 - [Tecnologias utilizadas](#tecnologias-utilizadas)
 - [Pacotes utilizados](#pacotes-utilizados)
 - [Implementações futuras](#implementações-futuras)
