@@ -82,6 +82,7 @@ A API cadastrará psicólogos e seus serviços, por exemplo: tipo de abordagem, 
 |      **_{DELETE}_**         |  Retorna  |
 | ------------------- | :-------------------: |
 |  /terapeuta/:id |  Deleta um terapeuta baseado em seu id |
+|  /convenio/:id |  Deleta um convenio baseado em seu id |
 
 ## 📝 Regras de negócio
 
