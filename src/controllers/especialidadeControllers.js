@@ -34,7 +34,7 @@ const todos = async(req, res) => {
             return res.status(403).send({message: 'Token não válido!', err})
         }
     const especialidades = await Especialidade.find()
-    res.json(especialidades)
+    res.status(201).json(especialidades)
     })
 }
 

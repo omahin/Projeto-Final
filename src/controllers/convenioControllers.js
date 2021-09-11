@@ -55,8 +55,34 @@ const verPorId = async (req, res) => {
     })
 }
 
+const deletarConvenio = async (req, res) => {
+    const authHeader = req.get('Authorization')
+    const token = authHeader.split(' ')[1]
+    if(!token){
+        return res.status(403).send({message: 'Insira o token para autorizar!'})
+    }
+    jwt.verify(token, SECRET_ADM, async(err) => {
+        if (err) {
+            return res.status(403).send({message: 'Token não válido!', err})
+        }
+    const requireId = req.params.id
+        try {
+            Convenio.deleteOne({ _id: requireId }, function(err){
+                if(!err){
+                    res.status(200).json({message: "Convênio apagado com sucesso!"})
+                }else{
+                    res.status(500).json({message: err.message})
+                }
+            })
+        } catch{
+            res.status(404).json({message: 'Não há dados para remover com o ID inserido'})
+        }
+    })
+}
+
 module.exports = {
     criarConvenio,
     todos,
-    verPorId
+    verPorId,
+    deletarConvenio
 }

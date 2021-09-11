@@ -66,5 +66,5 @@ const verPorId = async (req, res) => {
 module.exports = {
     criarAbordagem,
     todos,
-    verPorId,
+    verPorId
 }

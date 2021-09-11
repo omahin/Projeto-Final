@@ -1,5 +1,3 @@
-https://img.shields.io/github/license/omahin/Projeto-Final
-
 <p align="center">REPROGRAMA 🚀 | Turma On12 BACKEND | PROJETO FINAL 🚀</p>
 
 <p align="center">
@@ -31,7 +29,7 @@ A API cadastrará psicólogos e seus serviços, por exemplo: tipo de abordagem, 
 - [Documentação da api](#documentação-da-api)
 - [Demonstração da api](#demonstração-da-api)
 - [Pré requisitos](#pré-requisitos)
-- [Rodando o back end](#rodando-o-back-end)
+  - [Rodando o back end](#rodando-o-back-end)
 - [Tecnologias utilizadas](#tecnologias-utilizadas)
 - [Pacotes utilizados](#pacotes-utilizados)
 - [Implementações futuras](#implementações-futuras)
@@ -87,9 +85,7 @@ A API cadastrará psicólogos e seus serviços, por exemplo: tipo de abordagem, 
 
 * Não deverá ser possível cadastrar profissional com mesmos dados já inseridos uma vez.
 
-* Todas as rotas serão autenticadas.
-
-* Apenas o usuário administrador terá permissão de acesso para todas as rotas.
+* Apenas o usuário administrador terá permissão de acesso para criar, alterar e apagar dados.
 
 * O usuário cadastrado não poderá criar, atualizar ou deletar dados, apenas visualizá-los e filtrá-los.
 
@@ -149,7 +145,9 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 ## 🔮 Implementações futuras 
 
-No futuro, integrar o back com o front, criando a interface visual da API para aplicativo mobile.
+* Criar verificações de autorização nas demais rotas.
+
+* integrar o back com o front, criando a interface visual da API para aplicativo mobile, conforme sugerido abaixo.
 
 ![Imagem da logo](https://github.com/omahin/Projeto-Final/blob/main/img/Programa%20PSI.png)
 

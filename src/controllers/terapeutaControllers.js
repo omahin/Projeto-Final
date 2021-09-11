@@ -1,29 +1,22 @@
 const mongoose = require('mongoose')
 const Terapeuta = require('../models/terapeuta')
 const jwt = require('jsonwebtoken')
-const SECRET_USER = process.env.SECRET_USER
+// const SECRET_USER = process.env.SECRET_USER
 const SECRET_ADM = process.env.SECRET_ADM
 
 const todos = async (req, res) => {
-    const authHeader = req.get('Authorization')
-    const token = authHeader.split(' ')[1]
-    if(!token){
-        return res.status(403).send({message: "Insira o token para autorizar!"})
-    }
-    jwt.verify(token, SECRET_ADM, async(err) => {
-        if(err){
-            res.status(403).send({message: "Token não válido!", err})
-        }
+    // const authHeader = req.get('Authorization')
+    // const token = authHeader.split(' ')[1]
+    // if(!token){
+    //     return res.status(403).send({message: "Insira o token para autorizar!"})
+    // }
+    // jwt.verify(token, SECRET_ADM, SECRET_USER, async(err) => {
+    //     if(err){
+    //         res.status(403).send({message: "Token não válido!", err})
+    //     }
         const terapeutas = await Terapeuta.find()
             res.status(200).json(terapeutas)
-    })
-    jwt.verify(token, SECRET_USER, async(err) => {
-        if(err){
-            res.status(403).send({message: "Token não válido!", err})
-        }
-        const terapeutas = await Terapeuta.find()
-            res.status(200).json(terapeutas)
-    })
+    // })
 }
 
 const criarTerapeuta = async (req,res) => {
@@ -159,60 +152,60 @@ const getById = async (req, res) => {
 }
 
 const getByEspecialidade = async (req, res) => {
-    const authHeader = req.get('Authorization')
-    const token = authHeader.split(' ')[1]
-    if(!token){
-        return res.status(403).send({message: 'Insira o token para autorizar!'})
-    }
-    jwt.verify(token, SECRET_ADM, SECRET_USER, async(err) => {
-        if (err) {
-            return res.status(403).send({message: 'Token não válido!', err})
-        }
+    // const authHeader = req.get('Authorization')
+    // const token = authHeader.split(' ')[1]
+    // if(!token){
+    //     return res.status(403).send({message: 'Insira o token para autorizar!'})
+    // }
+    // jwt.verify(token, SECRET_ADM, SECRET_USER, async(err) => {
+    //     if (err) {
+    //         return res.status(403).send({message: 'Token não válido!', err})
+    //     }
     const { especialidade } = req.params
         Terapeuta.find({ especialidade : especialidade })
         .then((list)=> {
             if(!list.length > 0) return res.status(404).send({"message": "Especialidade não encontrada, tente novamente!"})
         return res.status(200).send(list)
         })
-    })
+    // })
 }
 
 const getByAbordagem = async (req,res) => {
-    const authHeader = req.get('Authorization')
-    const token = authHeader.split(' ')[1]
-    if(!token){
-        return res.status(403).send({message: 'Insira o token para autorizar!'})
-    }
-    jwt.verify(token, SECRET_ADM, SECRET_USER, async(err) => {
-        if (err) {
-            return res.status(403).send({message: 'Token não válido!', err})
-        }
+    // const authHeader = req.get('Authorization')
+    // const token = authHeader.split(' ')[1]
+    // if(!token){
+    //     return res.status(403).send({message: 'Insira o token para autorizar!'})
+    // }
+    // jwt.verify(token, SECRET_ADM, SECRET_USER, async(err) => {
+    //     if (err) {
+    //         return res.status(403).send({message: 'Token não válido!', err})
+    //     }
     const { abordagem } = req.params
         Terapeuta.find({ abordagem : abordagem })
         .then((list)=> { 
             if(!list.length > 0) return res.status(404).json({"message": "Abordagem não encontrada, tente novamente!"})
         return res.status(200).send(list)
         })
-    })
+    // })
 }
 
 const getByConvenio = async (req,res) => {
-    const authHeader = req.get('Authorization')
-    const token = authHeader.split(' ')[1]
-    if(!token){
-        return res.status(403).send({message: 'Insira o token para autorizar!'})
-    }
-    jwt.verify(token, SECRET_ADM, SECRET_USER, async(err) => {
-        if (err) {
-            return res.status(403).send({message: 'Token não válido!', err})
-        }
+    // const authHeader = req.get('Authorization')
+    // const token = authHeader.split(' ')[1]
+    // if(!token){
+    //     return res.status(403).send({message: 'Insira o token para autorizar!'})
+    // }
+    // jwt.verify(token, SECRET_ADM, SECRET_USER, async(err) => {
+    //     if (err) {
+    //         return res.status(403).send({message: 'Token não válido!', err})
+    //     }
     const { convenio } = req.params
         Terapeuta.find({ convenio : convenio })
         .then((list)=> { 
             if(!list.length > 0) return res.status(404).json({"message": "Convênio não encontrado, tente novamente!"})
         return res.status(200).send(list)
         })
-    })
+    // })
 }
 
 module.exports = {

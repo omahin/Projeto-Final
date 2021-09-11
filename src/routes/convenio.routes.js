@@ -8,4 +8,6 @@ router.get('/todos', controller.todos)
 
 router.get('/:id', controller.verPorId)
 
+router.delete('/:id', controller.deletarConvenio)
+
 module.exports = router
